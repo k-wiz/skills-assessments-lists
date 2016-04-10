@@ -33,6 +33,7 @@ def all_odd(number_list):
 
     odd_number_list = []
 
+    #Iterate over list, append numbers that are not evenly divisible by 2.
     for number in number_list:
         if number % 2 != 0:
             odd_number_list.append(number)
@@ -53,6 +54,7 @@ def all_even(number_list):
 
     even_number_list = []
 
+    #Iterate over list, append numbers that are evenly divisible by 2.
     for number in number_list:
         if number % 2 == 0:
             even_number_list.append(number)
@@ -94,6 +96,7 @@ def print_indexes(my_list):
 
     """
 
+    #Print car and corresponding index using the .index method. 
     for car in my_list:
         car_index = my_list.index(car)
         print car_index, car
@@ -111,6 +114,8 @@ def long_words(word_list):
     """
 
     long_word_list = []
+
+    #Iterate over list. If items are longer than 4 characters, append item to list. 
     for word in word_list:
         if len(word) > 4:
             long_word_list.append(word)
@@ -129,6 +134,8 @@ def n_long_words(word_list, n):
     """
 
     n_long_word_list = []
+
+    #Iterate over list. If items are longer than n characters, append item to list.
     for word in word_list:
         if len(word) > n:
             n_long_word_list.append(word)
@@ -156,6 +163,8 @@ def smallest_int(number_list):
 
     """
 
+    #Sort list, return first item of list. (Note: I found other ways to write this 
+    #function, but they used methods such as i.next that we haven't learned yet.) 
     if len(number_list) == 0:
         return None
     else:
@@ -179,6 +188,7 @@ def largest_int(number_list):
         True
 
     """
+    #Sort list, return last item of list.
     if len(number_list) == 0:
         return None
     else:
@@ -198,6 +208,7 @@ def halvesies(number_list):
         [0.5, 2.5]
 
     """
+    #Iterate over list, divide each number by 2 and append result to new list. 
     half_numbers = []
     for number in number_list:
         number = number / 2.0
@@ -215,6 +226,7 @@ def word_lengths(word_list):
     """
     word_length_list = []
 
+    #Iterate over list, append length of each word to new list. 
     for word in word_list:
         word_length = len(word)
         word_length_list.append(word_length)
@@ -238,6 +250,8 @@ def sum_numbers(number_list):
         0
 
     """
+
+    #Start counter at 0, add numbers to counter. Return counter. 
     sum = 0
     for number in number_list:
         sum += number
@@ -262,6 +276,7 @@ def mult_numbers(number_list):
         1
 
     """
+    #Start counter at 1. Multiply counter by each number. Return counter. 
     mult_result = 1
     for number in number_list:
         if len(number_list) > 0:
@@ -286,6 +301,7 @@ def join_strings(word_list):
     """
     joined_string = ''
 
+    #Iterate over list; add each word to new string. 
     for word in word_list:
         joined_string = joined_string + word
 
@@ -304,10 +320,13 @@ def average(number_list):
 
     count = 0
 
+    #Add each number to counter. 
     for number in number_list:
         count = count + number  
 
+    #Determine length of list.
     length = float(len(number_list))
+    #Divide counter total by length of list. 
     average_num = count / length 
 
     print average_num
@@ -329,6 +348,8 @@ def join_strings_with_comma(list_of_words):
     joined_string = ''
 
     count = len(list_of_words)
+    # Iterate over list; add each item to string followed by comma unless its
+    # the last item. Then add item to list withOUT comma.
     for word in list_of_words:
         if count > 1:
             joined_string = joined_string + word + ', '
@@ -361,6 +382,7 @@ def foods_in_common(foods1, foods2):
     foods1 = set(foods1)
     foods2 = set(foods2)
 
+    #Set math! Return the foods that occur in both lists. 
     common_foods = foods1 & foods2
     return common_foods
 
@@ -379,6 +401,9 @@ def reverse_list(my_list):
     """
     reversed_list = []
     
+    #Took me awhile to figure it out, but here's the simplest way! For each word,
+    #add word to the beginning of the list. 
+
     for word in my_list:
         reversed_list = [word] + reversed_list
         
@@ -401,6 +426,10 @@ def reverse_list_in_place(my_list):
 
 
     """
+    #Also took me some time to figure out. Start with first item: pop it off and 
+    #add to end of list. Then repeat, but move positions. Pop off first item 
+    #and move to second to last position in list.  Repeat until last item is 
+    #first item. 
 
     count = len(my_list) - 1
     while count > 0:
@@ -421,6 +450,8 @@ def duplicates(my_list):
     
 
     """
+    # Pop off first item, compare to rest of list. If item is in list, append to 
+    # new list. Turn list into set to de-dupe, and then turn set back into list. 
     duplicate_list = []
     for item in my_list:
         first_item = my_list.pop(0)
@@ -453,6 +484,8 @@ def find_letter_indices(list_of_words, letter):
 
     index_list = []
 
+    #Nested if statement. Keeps track of index using counter. If letter is in 
+    #word, returns the counter. If not, returns None. Appends results to new list. 
     for word in list_of_words:
         if letter not in word:
             ind = None
@@ -480,6 +513,7 @@ def largest_n_items(input_list, n):
     [59, 700, 6006]
 
     """
+    #Sorts list, returns last 3 items. 
     input_list = sorted(input_list)
     largest_numbers = input_list[-3:]
 
